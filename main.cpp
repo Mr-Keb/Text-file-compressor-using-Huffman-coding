@@ -12,10 +12,11 @@ int main(){
 
     std::vector<uint32_t> freq = counter(file);
     insert_in_queue(pq, freq);
+    if(pq.empty()) return 0;
 
     Node* tree = build_Huffman_tree(pq);
 
-    archive.open("archivio", std::ios::binary);
+    archive.open("archivio.txt", std::ios::binary);
 
     generate_codes(tree, codes, current_code);
     generate_header(pq, archive);

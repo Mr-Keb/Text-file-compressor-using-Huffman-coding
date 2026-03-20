@@ -6,7 +6,7 @@ std::vector<uint32_t> counter(const std::string& file){
     std::ifstream MyFile;
     char byte;
     //apro il file in binario, modalità lettura
-    MyFile.open(file, std::ios::binary | std::ios::in);
+    MyFile.open(file + ".txt", std::ios::binary | std::ios::in);
     
     if(!MyFile.is_open()){
         std::cout << "Specified file not found" << std::endl;
