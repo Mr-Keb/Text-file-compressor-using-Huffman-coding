@@ -1,4 +1,4 @@
-# Variabili di compilatore
+# Variabili del compilatore
 CXX = g++
 CXXFLAGS = -std=c++23 -Wall -Wextra -Iinclude -g
 
