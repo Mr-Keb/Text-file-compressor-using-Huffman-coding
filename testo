@@ -1,0 +1,44 @@
+Nella teoria dell'informazione, per codifica di Huffman si intende un algoritmo di codifica dei simboli usato per la compressione di dati, basato sul principio di trovare il sistema ottimale per codificare stringhe basato sulla frequenza relativa di ciascun carattere. Essa è stata sviluppata nel 1952 da David A. Huffman, uno studente dottorando presso il MIT, e pubblicata su A Method for the Construction of Minimum-Redundancy Codes (lett. "Un metodo per la costruzione di codici a ridondanza minima").
+
+La codifica di Huffman usa un metodo specifico per scegliere la rappresentazione di ciascun simbolo, risultando in un codice senza prefissi (cioè in cui nessuna stringa binaria di nessun simbolo è il prefisso della stringa binaria di nessun altro simbolo) che esprime il carattere più frequente nella maniera più breve possibile. È stato dimostrato che la codifica di Huffman è il più efficiente sistema di compressione di questo tipo: nessun'altra mappatura di simboli in stringhe binarie può produrre un risultato più breve nel caso in cui le frequenze di simboli effettive corrispondono a quelle usate per creare il codice.
+
+Per un insieme di simboli la cui cardinalità è una potenza di due e con una distribuzione probabilistica uniforme, la codifica di Huffman equivale alla semplice codifica a blocchi binari.
+Storia
+
+Nel 1951 a David A. Huffman e a un suo collega al corso del MIT di Teoria dell'Informazione venne data la scelta tra una tesi scritta o un esame. Il docente, Robert M. Fano, assegnò una tesi sul problema di trovare il codice binario più efficiente. Huffman, incapace di dimostrare un qualsiasi codice che fosse il più efficiente, si stava rassegnando all'idea di dover studiare per l'esame, quando gli venne l'idea di usare un albero binario ordinato in base alla frequenza, e così dimostrò velocemente che questo metodo era il più efficiente.
+
+Un'idea simile era stata usata in precedenza nella Codifica di Shannon-Fano (creata da Claude Shannon, inventore della teoria dell'informazione, e Fano, il docente di Huffman), ma Huffman sistemò la sua più grande lacuna costruendo un albero ascendente anziché uno discendente.
+Tecnica base
+
+Questa tecnica funziona creando un albero binario di simboli:
+
+    Ordina i simboli, in una lista, in base al conteggio delle loro occorrenze.
+    Ripeti i seguenti passi finché la lista non contiene un unico simbolo:
+        Prendi dalla lista i due simboli con la frequenza di conteggio minore. Crea un albero di Huffman che ha come "figli" questi due elementi, e crea un nodo "genitore"
+        Assegna la somma del conteggio delle frequenze dei figli al genitore e ponilo nella lista in modo da mantenere l'ordine.
+        Cancella i figli dalla lista.
+    Assegna una parola codice a ogni elemento basandosi sul path a partire dalla radice.
+
+Caratteristiche principali
+
+Le frequenze usate possono essere quelle generiche nel dominio dell'applicazione basate su medie precalcolate, o possono essere le frequenze trovate nel testo che deve essere compresso (questa variante richiede che la tabella di frequenza sia registrata insieme con il testo compresso; vi sono diverse implementazioni che adottano dei trucchi per registrare queste tabelle efficientemente).
+
+La codifica di Huffman è ottimale quando la probabilità di ciascun simbolo in input è una potenza negativa di due. Le codifiche senza prefissi tendono a essere inefficienti sui piccoli alfabeti, quando le probabilità spesso cadono tra potenze di due. L'espansione di simboli adiacenti in "parole" prima della codifica di Huffman può essere di aiuto. Casi limite della codifica di Huffman sono collegati alla Sequenza di Fibonacci.
+
+La codifica aritmetica produce dei leggeri guadagni su quella di Huffman, ma questi guadagni risultano convenienti solamente se l'algoritmo per la codifica aritmetica è ottimale, in quanto una codifica banale richiede una maggiore complessità computazionale. Questa versione naìf, è per di più coperta da brevetto IBM nei suoi concetti centrali. Tali brevetti, però, non sono validi al di fuori degli USA, almeno fino all'approvazione definitiva dei brevetti software in Europa.
+Variazioni
+Codifica adattiva di Huffman
+
+Una variazione detta adattiva calcola le frequenze dinamicamente in base alle frequenze effettive più recenti nella stringa sorgente, in maniera analoga alla famiglia di algoritmi LZ.
+Algoritmo di Huffman a Template
+
+Spesso i pesi usati nelle implementazioni di Huffman rappresentano delle probabilità numeriche, ma l'algoritmo in sé non lo richiede: esso richiede solamente una maniera di ordinare i pesi e di sommarli. La codifica di Huffman a "Template" permette l'uso di pesi non numerici (costi, frequenze e così via).
+Codifica di Huffman a base n
+
+L'algoritmo di Huffman a base n usa l'alfabeto {0, 1, ..., n-1} per codificare il messaggio e costruire un albero a base n.
+Codifica di Huffman con costi per lettera diseguali
+
+Nel problema standard della codifica di Huffman, è dato un insieme di parole e per ciascuna parola una frequenza positiva. Lo scopo è di codificare ogni parola "p" con una parola-codice "c" in un dato alfabeto. La Codifica di Huffman con costi per lettera diseguali è una generalizzazione in cui le lettere dell'alfabeto di codifica possono avere lunghezze non uniformi. L'obiettivo è di minimizzare la media pesata della lunghezza delle parole-codice.
+Applicazioni
+
+Oggi la codifica di Huffman è spesso usata come complemento di altri metodi di compressione: sono PKZIP, e dei successori ZIP e WinRar) e codec multimediali quali JPEG e MP3.
