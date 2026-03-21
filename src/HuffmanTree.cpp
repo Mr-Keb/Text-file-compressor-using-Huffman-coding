@@ -44,7 +44,6 @@ void insert_in_queue(std::priority_queue<Node*, std::vector<Node*>, MyCompare>& 
             Node* nodo = new Node (static_cast<uint8_t>(i), v[i]);
             pq.push(nodo);
         }
-        if(i >= 1000) return;
     }
 }
 
@@ -79,4 +78,11 @@ void print_tree(Node* tree){
 
     print_tree(tree->left);
     print_tree(tree->right);
+}
+
+void destroy_tree(Node* tree){
+    if(!tree) return;
+    destroy_tree(tree->left);
+    destroy_tree(tree->right);
+    delete tree;
 }

@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <queue>
-#include <unordered_map>
 #include <vector>
 #include <cstdint>
 #include <fstream>
@@ -26,7 +25,7 @@ void insert_in_queue(std::priority_queue<Node*, std::vector<Node*>, MyCompare>&,
 Node* build_Huffman_tree(std::priority_queue<Node*, std::vector<Node*>, MyCompare>);
 //funzione di debug
 void print_tree(Node*);
-
+void destroy_tree(Node*);
 
 //per leggere il file e avere come ritorno un vettore di 256 posizioni, usando uint32 posso gestire file fino a 4GiB
 std::vector<uint32_t> counter(const std::string&);

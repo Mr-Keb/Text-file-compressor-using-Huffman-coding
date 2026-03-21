@@ -14,7 +14,7 @@ SRCS = main.cpp $(wildcard $(SRC_DIR)/*.cpp)
 OBJS = $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(notdir $(SRCS)))
 
 # Nome dell'eseguibile
-TARGET = MyCompressor
+TARGET = HuffmanCompressor
 
 # Regola principale
 all: $(OBJ_DIR) $(TARGET)
