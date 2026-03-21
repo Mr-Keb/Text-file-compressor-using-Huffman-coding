@@ -1,0 +1,1 @@
+if using VS code you can import the folder ".vscode" and just build from your ide, if you are compilig and building from your terminal import only the "makefile" and use the instruction "make" in your terminal
