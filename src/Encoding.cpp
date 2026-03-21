@@ -35,7 +35,7 @@ void compress(std::string filename, const std::vector<std::string>& codes, std::
     int bit_count = 0;
 
     std::ifstream file;
-    file.open(filename + ".txt", std::ios::binary);
+    file.open(filename, std::ios::binary);
     char ch;
 
     while(file.get(ch)){
