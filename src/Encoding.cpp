@@ -36,14 +36,13 @@ void compress(std::string filename, const std::vector<std::string>& codes, std::
 
     std::ifstream file;
     file.open(filename, std::ios::binary);
-    char ch;
+    uint8_t ch;
 
-    while(file.get(ch)){
-        unsigned char index = static_cast<unsigned char>(ch);
+    while(file.read(reinterpret_cast<char*>(&ch), 1)){
         //inserimento usando il carattere come indice
-        for(size_t i = 0; i < codes[index].size(); i++){
+        for(size_t i = 0; i < codes[ch].size(); i++){
             //se trovo 1 accendo il bit che mi serve nella posizione cercata
-            if(codes[index][i] == '1'){
+            if(codes[ch][i] == '1'){
                 buffer |= (1 << (7 - bit_count));
             }
             bit_count++;

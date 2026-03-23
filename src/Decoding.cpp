@@ -6,6 +6,7 @@ std::priority_queue<Node*, std::vector<Node*>, MyCompare> decode_header(std::ifs
 
     if(file.good()){
         file.read(reinterpret_cast<char*>(&file_size), 2);
+        if(!file) return pq;
     }
     else{
         return pq;
@@ -55,6 +56,6 @@ void decode_tree(std::priority_queue<Node*, std::vector<Node*>, MyCompare>& pq, 
             if(decoded_count == total_char) break;
         }
     }
-
+    output.close();
     destroy_tree(tree);
 }

@@ -4,7 +4,7 @@ std::vector<uint32_t> counter(const std::string& file){
     //imposto a 256 perché in questo modo posso avere tutti i caratteri ASCII
     std::vector<uint32_t> freq(256, 0);
     std::ifstream MyFile;
-    char byte;
+    uint8_t byte;
     //apro il file in binario, modalità lettura
     MyFile.open(file, std::ios::binary | std::ios::in);
     
@@ -13,9 +13,9 @@ std::vector<uint32_t> counter(const std::string& file){
         return freq;
     }
     else{
-        while(MyFile.get(byte)){
+        while(MyFile.read(reinterpret_cast<char*>(&byte), 1)){
             //converto in uint8_t perché la funzione get usa char, che sono su 8 bit ma sono signed
-            uint8_t index = static_cast<uint8_t>(byte);
+            uint8_t index = byte;
             //prendo la rappresentazione binaria del carattere corrispondente in ASCII e aumento l'indirizzo
             freq[index]++;
         }
