@@ -3,6 +3,7 @@
 std::priority_queue<Node*, std::vector<Node*>, MyCompare> decode_header(std::ifstream& file){
     uint16_t file_size;
     std::priority_queue<Node*, std::vector<Node*>, MyCompare> pq;
+    std::vector<uint32_t> freq(256, 0);
 
     if(file.good()){
         file.read(reinterpret_cast<char*>(&file_size), 2);
@@ -19,10 +20,9 @@ std::priority_queue<Node*, std::vector<Node*>, MyCompare> decode_header(std::ifs
         file.read(reinterpret_cast<char*>(&data), 1);
         file.read(reinterpret_cast<char*>(&frequency), 4);
 
-        Node* node = new Node (data, frequency);
-        pq.push(node);
+        freq[data] = frequency;
     }
-
+    insert_in_queue(pq, freq);
     return pq;
 }
 

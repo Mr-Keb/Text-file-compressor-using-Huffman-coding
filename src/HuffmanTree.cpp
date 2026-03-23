@@ -50,6 +50,16 @@ void insert_in_queue(std::priority_queue<Node*, std::vector<Node*>, MyCompare>& 
 //passo alla formazione dell'albero, unendo i caratteri con frequenza minore fino ad avere tutto connesso
 Node* build_Huffman_tree(std::priority_queue<Node*, std::vector<Node*>, MyCompare> pq){
     if(pq.size() == 0) return nullptr;
+    //caso limite di singolo carattere
+    if(pq.size() == 1){
+        Node* single = pq.top();
+        pq.pop();
+        // Creo un padre fittizio per evitare un albero tronco
+        Node* parent = new Node(0, single->frequency);
+        parent->left = single; 
+        pq.push(parent);
+    }
+
     //size > 1 perché alla fine resta un solo elemento
     while(pq.size() > 1){
         //assegno a sinistra il primo elemento e lo cancello dalla coda
