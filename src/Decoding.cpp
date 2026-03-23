@@ -26,13 +26,13 @@ std::priority_queue<Node*, std::vector<Node*>, MyCompare> decode_header(std::ifs
     return pq;
 }
 
-void decode_tree(std::priority_queue<Node*, std::vector<Node*>, MyCompare>& pq, std::ifstream& file){
+void decode_tree(std::priority_queue<Node*, std::vector<Node*>, MyCompare>& pq, std::ifstream& file, std::string filename){
     Node* tree = build_Huffman_tree(pq);
     uint32_t total_char = tree->frequency;
     uint32_t decoded_count = 0;
     Node* current = tree;
 
-    std::ofstream output("decrypted", std::ios::binary);
+    std::ofstream output(filename, std::ios::binary);
 
     while(decoded_count < total_char){
         uint8_t byte;

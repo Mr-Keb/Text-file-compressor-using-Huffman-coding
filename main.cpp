@@ -61,7 +61,7 @@ int main(){
                     continue;
                 }
 
-                decode_tree(pq, archive);
+                decode_tree(pq, archive, file);
 
                 archive.close();
                 break;
