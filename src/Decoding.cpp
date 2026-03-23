@@ -32,7 +32,7 @@ void decode_tree(std::priority_queue<Node*, std::vector<Node*>, MyCompare>& pq, 
     uint32_t decoded_count = 0;
     Node* current = tree;
 
-    std::ofstream output("decrypted.txt", std::ios::binary);
+    std::ofstream output("decrypted", std::ios::binary);
 
     while(decoded_count < total_char){
         uint8_t byte;
