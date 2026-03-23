@@ -49,11 +49,11 @@ make
 ```
 This command triggers the compiler to:
 
-    Create the `obj/` directory if it does not exist.
+Create the `obj/` directory if it does not exist.
 
-    Compile `main.cpp` and all `.cpp` files inside the `src/` directory into object files (`.o`).
+Compile `main.cpp` and all `.cpp` files inside the `src/` directory into object files (`.o`).
 
-    Link everything together to generate the final executable named HuffmanCompressor.
+Link everything together to generate the final executable named HuffmanCompressor.
 
 2. Clean Build Artifacts
 
@@ -69,17 +69,17 @@ This safely deletes the obj/ directory and the HuffmanCompressor executable.
 
 After a successful build, launch the program:
 
-    - On Linux / macOS / WSL:
-    ```Bash
+- On Linux / macOS / WSL:
+```Bash
 
-    ./HuffmanCompressor
-    ```
+./HuffmanCompressor
+```
 
-    - On Windows:
-    ```DOS
+- On Windows:
+```DOS
 
-    HuffmanCompressor.exe
-    ```
+HuffmanCompressor.exe
+```
 
 An interactive menu will appear with three options:
 
