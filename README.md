@@ -9,6 +9,9 @@ It is crucial to understand the mathematical limits of this algorithm. This soft
 - **Best Use Case:** Text files or binary files with high data redundancy (where certain bytes appear much more frequently than others).
 - **Worst Use Case:** Pre-compressed files such as `.zip` archives, `.jpg` images, or `.mp4` videos. These formats already possess maximum entropy, meaning the byte distribution is almost flat. If an attempt is made to compress such files, the resulting file will actually be **larger** than the original. The algorithm cannot compress random noise, and the inclusion of the Huffman tree header (necessary for decryption) will add overhead (approximately 1.2 KB) to the final file size.
 
+## If using Visual Studio Code
+You can add the `tasks.json` file to your `.vscode` directory and compile
+
 ## Project Directory Structure
 
 The build system relies on a strictly defined directory structure managed by a custom `Makefile`. The source files must be organized exactly as follows:
