@@ -14,10 +14,8 @@ std::vector<uint32_t> counter(const std::string& file){
     }
     else{
         while(MyFile.read(reinterpret_cast<char*>(&byte), 1)){
-            //converto in uint8_t perché la funzione get usa char, che sono su 8 bit ma sono signed
-            uint8_t index = byte;
             //prendo la rappresentazione binaria del carattere corrispondente in ASCII e aumento l'indirizzo
-            freq[index]++;
+            freq[byte]++;
         }
         MyFile.close();
     }
